@@ -1,0 +1,16 @@
+POST http://localhost:3005/users
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Ala ma kota"
+}
+
+###
+POST http://localhost:3005/users
+Content-Type: application/json
+
+{
+  "id": 2,
+  "name": "Ala nie ma kota"
+}
