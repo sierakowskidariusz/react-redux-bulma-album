@@ -1,9 +1,9 @@
 import React, {useEffect} from "react";
 import {fetchUsers, useAppDispatch, useAppSelector} from "../store";
 import Spinner from "./Spinner";
-import {UserAlbums} from "./UserAlbums";
+import {AlbumsPanel} from "./AlbumsPanel";
 
-export default function UserList(): React.ReactElement {
+export default function UserList(): React.ReactElement<HTMLElement> {
     const dispatch = useAppDispatch();
     useEffect(() => {
         dispatch(fetchUsers())
@@ -21,7 +21,7 @@ export default function UserList(): React.ReactElement {
         <h1 className="title is-1">List of users</h1>
         {
             users.data.length
-                ? users.data.map(user => <UserAlbums user={user} key={user.id} />)
+                ? users.data.map(user => <AlbumsPanel user={user} key={user.id} />)
                 : <div className="box">No data</div>
         }
     </section>;

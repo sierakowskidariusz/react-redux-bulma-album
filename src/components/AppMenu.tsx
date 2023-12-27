@@ -6,7 +6,7 @@ import {IoRefresh} from "react-icons/io5";
 import useThunk from "../hooks/useThunk";
 import {LoadingButton} from "./LoadingButton";
 
-export function AppMenu(): React.ReactElement {
+export function AppMenu(): React.ReactElement<HTMLElement> {
     const dispatcher = useAppDispatch();
     const [addUserDispatch, isLoading] = useThunk(addUser);
 

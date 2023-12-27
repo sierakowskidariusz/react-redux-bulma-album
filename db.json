@@ -5,10 +5,85 @@
       "id": 1
     },
     {
-      "name": "Damon Mohr",
+      "name": "Leslie Okuneva",
+      "id": 6
+    },
+    {
+      "name": "Myron Bednar",
+      "id": 7
+    },
+    {
+      "name": "Leon Koepp",
+      "id": 8
+    }
+  ],
+  "albums": [
+    {
+      "name": "upright",
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "name": "mad",
+      "userId": 1,
+      "id": 3
+    },
+    {
+      "name": "wide",
+      "userId": 6,
+      "id": 4
+    },
+    {
+      "name": "frigid",
+      "userId": 6,
       "id": 5
     }
   ],
-  "albums": [],
-  "photos": []
+  "photos": [
+    {
+      "name": "ringed",
+      "albumId": 2,
+      "id": 5
+    },
+    {
+      "name": "humongous",
+      "albumId": 3,
+      "id": 6
+    },
+    {
+      "name": "idle",
+      "albumId": 3,
+      "id": 7
+    },
+    {
+      "name": "honored",
+      "albumId": 4,
+      "id": 8
+    },
+    {
+      "name": "rubbery",
+      "albumId": 4,
+      "id": 9
+    },
+    {
+      "name": "speedy",
+      "albumId": 5,
+      "id": 10
+    },
+    {
+      "name": "melodic",
+      "albumId": 5,
+      "id": 11
+    },
+    {
+      "name": "sentimental",
+      "albumId": 4,
+      "id": 12
+    },
+    {
+      "name": "bustling",
+      "albumId": 5,
+      "id": 13
+    }
+  ]
 }

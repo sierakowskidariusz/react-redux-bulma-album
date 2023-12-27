@@ -14,3 +14,7 @@ Content-Type: application/json
   "id": 2,
   "name": "Ala nie ma kota"
 }
+
+
+###
+GET http://localhost:3005/album/1/photos
