@@ -26,7 +26,7 @@ export function AlbumsPanel(props: AlbumsPanelProps): React.ReactElement<HTMLDiv
     return <ExpandablePanel
         isDeleting={isDeleting}
         deleteLabel="Delete user"
-        deleteItemHandel={handleRemoveUser}
+        deleteItemHandle={handleRemoveUser}
         panelHeader={props.user.name}
         addButton={<LoadingButtonIcon className="card-header-icon" isLoading={isAdding} staticIcon={<RiFolderAddFill />} label="Add album" onClick={addAlbumHandle} />}
     >

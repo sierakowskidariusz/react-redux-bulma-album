@@ -4,7 +4,11 @@ import {Image} from "../model/Image";
 export const imagesApi = createApi({
     reducerPath: 'photos',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://localhost:3005/'
+        baseUrl: 'http://localhost:3005/',
+        fetchFn: async (...args) => {
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            return fetch(...args);
+        }
     }),
     tagTypes: ['photos'],
     endpoints: builder => ({
@@ -13,7 +17,9 @@ export const imagesApi = createApi({
                 url: `albums/${albumId}/photos`,
                 method: 'GET'
             }),
-            providesTags: ['photos']
+            providesTags: (result, error, albumId) => {
+                return [{type: 'photos', id: albumId}];
+            }
         }),
         addImage: builder.mutation<Image,Image>({
             query: image => ({
@@ -21,14 +27,18 @@ export const imagesApi = createApi({
                 body: image,
                 method: 'POST'
             }),
-            invalidatesTags: ['photos']
+            invalidatesTags: (result, error, image) => {
+                return [{type: 'photos', id: image.albumId}];
+            }
         }),
-        removeImage: builder.mutation<Image,string>({
-            query: id => ({
-                url: `photos/${id}`,
+        removeImage: builder.mutation<Image,Image>({
+            query: image => ({
+                url: `photos/${image.id}`,
                 method: 'DELETE'
             }),
-            invalidatesTags: ['photos']
+            invalidatesTags: (result, error, image) => {
+                return [{type: 'photos', id: image.albumId}];
+            }
         })
     })
 })
@@ -36,5 +46,6 @@ export const imagesApi = createApi({
 export const {
     useFetchImagesQuery,
     useAddImageMutation,
-    useRemoveImageMutation
+    useRemoveImageMutation,
+    util
 } = imagesApi;

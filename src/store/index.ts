@@ -4,8 +4,8 @@ import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
 import {fetchUsers} from "./thunks/fetchUsers";
 import {addUser} from "./thunks/addUser";
 import {removeUser} from "./thunks/removeUser";
-import {albumsApi, useFetchAlbumsQuery, useAddAlbumMutation, useRemoveAlbumMutation} from "../apis/albumsApi";
-import {imagesApi, useAddImageMutation, useRemoveImageMutation, useFetchImagesQuery} from "../apis/imagesApi";
+import {albumsApi, useFetchAlbumsQuery, useAddAlbumMutation, useRemoveAlbumMutation, util as albumsApiUtils} from "../apis/albumsApi";
+import {imagesApi, useAddImageMutation, useRemoveImageMutation, useFetchImagesQuery, util as imagesApiUtils} from "../apis/imagesApi";
 import {setupListeners} from "@reduxjs/toolkit/query";
 
 const store = configureStore({
@@ -39,5 +39,7 @@ export {
     useRemoveAlbumMutation,
     useAddImageMutation,
     useFetchImagesQuery,
-    useRemoveImageMutation
+    useRemoveImageMutation,
+    albumsApiUtils,
+    imagesApiUtils
 }

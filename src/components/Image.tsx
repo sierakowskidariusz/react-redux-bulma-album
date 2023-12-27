@@ -8,7 +8,7 @@ export function Image(props: ImageProps): React.ReactElement<HTMLElement> {
     const image = props.image;
     const [removeImage, {isLoading: isDeleting}] = useRemoveImageMutation();
     function deleteItemHandel() {
-        removeImage(image.id as string);
+        removeImage(image);
     }
     return <article className="message">
         <div className="message-header">

@@ -1,5 +1,5 @@
 import React from "react";
-import {addUser, fetchUsers, useAppDispatch} from "../store";
+import {addUser, fetchUsers, useAppDispatch, albumsApiUtils, imagesApiUtils} from "../store";
 import {faker} from "@faker-js/faker";
 import {FaUserPlus} from "react-icons/fa";
 import {IoRefresh} from "react-icons/io5";
@@ -11,6 +11,8 @@ export function AppMenu(): React.ReactElement<HTMLElement> {
     const [addUserDispatch, isLoading] = useThunk(addUser);
 
     const handleRefresh = () => {
+        dispatcher(albumsApiUtils?.resetApiState());
+        dispatcher(imagesApiUtils?.resetApiState());
         dispatcher(fetchUsers());
     };
     const handleAddUser = () => {

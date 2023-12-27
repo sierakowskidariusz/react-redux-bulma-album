@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {MouseEvent, useState} from 'react'
 import classNames from "classnames";
 import LoadingButtonIcon from "./LoadingButtonIcon";
 import {MdRemoveCircle} from "react-icons/md";
@@ -9,7 +9,7 @@ export default function ExpandablePanel(props: ExpandablePanelProps): React.Reac
     const {
         children,
         className,
-        deleteItemHandel,
+        deleteItemHandle,
         isDeleting,
         deleteLabel,
         panelHeader,
@@ -21,14 +21,20 @@ export default function ExpandablePanel(props: ExpandablePanelProps): React.Reac
     const classNameHeaders = classNames("card-header", {
         "is-opacity-5": isDeleting
     });
-    const handleOpen = () => {
+    const handleOpen = (event: MouseEvent) => {
+        event.stopPropagation();
         setOpen(!open);
+    }
+    const handleDelete = (event: MouseEvent<HTMLButtonElement>) => {
+        event.stopPropagation();
+        setOpen(false);
+        deleteItemHandle(event);
     }
     return <div {...rest} className={componentClassName} style={{marginBottom: 10}}>
         <header className={classNameHeaders} onClick={handleOpen}>
             <LoadingButtonIcon
                 className="card-header-icon"
-                onClick={deleteItemHandel}
+                onClick={handleDelete}
                 isLoading={isDeleting}
                 label={deleteLabel}
                 staticIcon={<MdRemoveCircle />}
